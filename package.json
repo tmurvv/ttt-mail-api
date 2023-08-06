@@ -1,0 +1,26 @@
+{
+  "name": "tttmailapi",
+  "version": "0.1.0",
+  "description": "take2tech.ca Mail API",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmurvv/ttt-mail-api.git"
+  },
+  "author": "Tisha Murvihill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmurvv/ttt-mail-api/issues"
+  },
+  "homepage": "https://github.com/tmurvv/ttt-mail-api#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.4",
+    "nodemailer-express-handlebars": "^6.1.0",
+    "nodemon": "^3.0.1"
+  }
+}
