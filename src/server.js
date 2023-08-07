@@ -6,7 +6,7 @@ const {sendMail} = require("./controllers/send-mail")
 
 console.log('test', test)
 app.get('/', (req, res) => {
-    res.send('Health Status: Success')
+    res.send('Health Status: Success - New Location')
 })
 
 app.get('/send-mail', sendMail);
