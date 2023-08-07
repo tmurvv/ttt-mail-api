@@ -1,22 +1,22 @@
-module.exports.sendMail = (req,res) => {
+module.exports.sendMail = (req, res) => {
     const hbs = require('nodemailer-express-handlebars')
     const nodemailer = require('nodemailer')
     const path = require('path')
 
-// initialize nodemailer
+    // initialize nodemailer
     const transporter = nodemailer.createTransport(
         {
             host: process.env.MAIL_SERVER,
             port: 443,
             secure: true,
-            auth:{
+            auth: {
                 user: process.env.MAIL_LOGIN,
                 pass: process.env.MAIL_PASSWORD
             }
         }
     );
-console.log('pro', process.env.MAIL_LOGIN)
-// point to the template folder
+
+    // point to the template folder
     const handlebarOptions = {
         viewEngine: {
             partialsDir: path.resolve('./views/'),
@@ -25,7 +25,7 @@ console.log('pro', process.env.MAIL_LOGIN)
         viewPath: path.resolve('./views/'),
     };
 
-// use a template file with nodemailer
+    // use a template file with nodemailer
     transporter.use('compile', hbs(handlebarOptions))
 
     const mailOptions = {
@@ -33,21 +33,20 @@ console.log('pro', process.env.MAIL_LOGIN)
         to: 'tmurv@shaw.ca', // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
         subject: 'Welcome!',
         template: 'email', // the name of the template file i.e email.handlebars
-        context:{
+        context: {
             name: "Murv",
             company: 'Murv Company'
         }
     };
 
-// trigger the sending of the E-mail
-    transporter.sendMail(mailOptions, function(error, info){
+    // trigger the sending of the E-mail
+    transporter.sendMail(mailOptions, function (error, info) {
         console.log('imin')
-        if(error){
-            console.log('inif')
-            return console.log(error.message);
+        if (error) {
+            console.log(error.message);
+            res.send(`ERROR: ${error.message}`);
         }
-        console.log('Message sent: ' + info.response);
+        console.log(`Message sent: ${info.response}`);
+        res.send(`Message sent: ${info.response}`);
     });
-console.log('here')
-    res.send('bottom send mail mmpm')
 }

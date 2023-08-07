@@ -1,8 +1,8 @@
 const express = require('express')
-const test = require('dotenv').config()
+const test = require('dotenv').config();
 const app = express()
-const port = 3000
 const {sendMail} = require("./controllers/send-mail")
+const port = process.env.PORT;
 
 console.log('test', test)
 app.get('/', (req, res) => {
@@ -11,6 +11,6 @@ app.get('/', (req, res) => {
 
 app.get('/send-mail', sendMail);
 
-app.listen(port, (localhost) => {
+app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })

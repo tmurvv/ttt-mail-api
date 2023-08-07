@@ -8,7 +8,9 @@ ss
 ## to deploy production
 - git push all changes
 - ssh tmurv@66.85.30.155 -p 222
+- cd ..
+- cd ..
 - cd apps/ttt/tttmailapi
 - git reset --hard
 - git pull
-- check that config.env port is 7050, linux command is "cat config.env"
+- check that .env port is 4000
