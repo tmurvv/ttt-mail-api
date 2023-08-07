@@ -44,9 +44,11 @@ module.exports.sendMail = (req, res) => {
     //     console.log('imin')
     //     if (error) {
     //         console.log(error.message);
-    //         res.send(`ERROR: ${error.message}`);
+    //         return res.send(`ERROR: ${error.message}`);
     //     }
     //     console.log(`Message sent: ${info.response}`);
-    //     res.send(`Message sent: ${info.response}`);
+    //     retur res.send(`Message sent: ${info.response}`);
     // });
+
+    res.send(`body: ${req.body}`)
 }
