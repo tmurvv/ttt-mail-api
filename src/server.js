@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('Health Status: Success - New Location')
 })
 
-app.get('/send-mail', sendMail);
+app.post('/send-mail', sendMail);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
