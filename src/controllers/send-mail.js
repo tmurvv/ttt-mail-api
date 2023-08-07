@@ -41,7 +41,9 @@ console.log(process.env.MAIL_LOGIN)
 
 // trigger the sending of the E-mail
     transporter.sendMail(mailOptions, function(error, info){
+        console.log('imin')
         if(error){
+            console.log('inif')
             return console.log(error.message);
         }
         console.log('Message sent: ' + info.response);
