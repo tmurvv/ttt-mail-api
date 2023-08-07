@@ -11,6 +11,6 @@ app.get('/', (req, res) => {
 
 app.get('/send-mail', sendMail);
 
-app.listen(port, () => {
+app.listen(port, (localhost) => {
     console.log(`Listening on port ${port}`)
 })
