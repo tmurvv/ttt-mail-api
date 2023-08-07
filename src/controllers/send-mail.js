@@ -6,7 +6,7 @@ module.exports.sendMail = (req,res) => {
 // initialize nodemailer
     const transporter = nodemailer.createTransport(
         {
-            service: process.env.MAIL_SERVER,
+            host: process.env.MAIL_SERVER,
             port: 443,
             secure: true,
             auth:{
