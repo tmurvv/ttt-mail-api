@@ -1,10 +1,14 @@
-const express = require('express')
-const test = require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+
+const {sendMail} = require("./controllers/send-mail");
+
 const app = express()
-const {sendMail} = require("./controllers/send-mail")
 const port = process.env.PORT;
 
-console.log('test', test)
+app.use(cors());
+
 app.get('/', (req, res) => {
     res.send('Health Status: Success - New Location')
 })
