@@ -32,25 +32,27 @@ module.exports.sendMail = (req, res) => {
 
     const mailOptions = {
         from: '"Tech" <tech@take2tech.ca>', // sender address
-        to: 'tmurv@shaw.ca', // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
-        subject: 'Welcome!',
+        to: 'tech@take2tech.ca', // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
+        subject: 'Contact Message Received',
         template: 'email', // the name of the template file i.e email.handlebars
         context: {
-            name: "Murv",
-            company: 'Murv Company'
+            name: req.body?.name,
+            email: req.body?.email,
+            message: req.body?.message,
+            tttClient: "Albertaharpist.com"
         }
     };
 
     // trigger the sending of the E-mail
-    // transporter.sendMail(mailOptions, function (error, info) {
-    //     console.log('imin')
-    //     if (error) {
-    //         console.log(error.message);
-    //         return res.send(`ERROR: ${error.message}`);
-    //     }
-    //     console.log(`Message sent: ${info.response}`);
-    //     retur res.send(`Message sent: ${info.response}`);
-    // });
+    transporter.sendMail(mailOptions, function (error, info) {
+        console.log('imin')
+        if (error) {
+            console.log(error.message);
+            res.send(`ERROR: ${error.message}`);
+        }
+        console.log(`Message sent: ${info.response}`);
+        res.send(`Message sent: ${info.response}`);
+    });
 
-    res.send(`body: ${req.body?.title}`)
+    // res.send(`body: ${JSON.stringify(req.body)}`)
 }
