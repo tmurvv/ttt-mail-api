@@ -2,7 +2,9 @@ module.exports.sendMail = (req, res) => {
     const hbs = require('nodemailer-express-handlebars')
     const nodemailer = require('nodemailer')
     const path = require('path')
+
     console.log('req', req.body);
+
     // initialize nodemailer
     const transporter = nodemailer.createTransport(
         {
@@ -50,5 +52,5 @@ module.exports.sendMail = (req, res) => {
     //     retur res.send(`Message sent: ${info.response}`);
     // });
 
-    res.send(`body: ${req.body}`)
+    res.send(`body: ${req.body?.title}`)
 }
