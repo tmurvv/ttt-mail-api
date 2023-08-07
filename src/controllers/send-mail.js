@@ -48,6 +48,6 @@ console.log(process.env.MAIL_LOGIN)
         }
         console.log('Message sent: ' + info.response);
     });
-
+console.log('here')
     res.send('bottom send mail')
 }
