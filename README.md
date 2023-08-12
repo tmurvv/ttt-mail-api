@@ -10,7 +10,7 @@ ss
 - ssh tmurv@66.85.30.155 -p 222
 - cd ..
 - cd ..
-- cd apps/ttt/tttmailapi
+- cd apps/ttt/mail.take2tech.ca
 - git reset --hard
 - git pull
 - check that .env port is 4000

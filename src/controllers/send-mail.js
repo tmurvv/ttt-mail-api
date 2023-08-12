@@ -19,7 +19,7 @@ module.exports.sendMail = (req, res) => {
     );
 
     // point to the template folder
-    const handlebarOptions = {
+    const emailTemplateOptions = {
         viewEngine: {
             partialsDir: path.resolve('./views/'),
             defaultLayout: false,
@@ -28,7 +28,7 @@ module.exports.sendMail = (req, res) => {
     };
 
     // use a template file with nodemailer
-    transporter.use('compile', hbs(handlebarOptions))
+    transporter.use('compile', hbs(emailTemplateOptions))
 
     const mailOptions = {
         from: '"Tech" <tech@take2tech.ca>', // sender address
@@ -39,7 +39,7 @@ module.exports.sendMail = (req, res) => {
             name: req.body?.name,
             email: req.body?.email,
             message: req.body?.message,
-            tttClient: "Albertaharpist.com"
+            tttClient: "take2tech.ca"
         }
     };
 
@@ -53,6 +53,4 @@ module.exports.sendMail = (req, res) => {
         console.log(`Message sent: ${info.response}`);
         res.send(`Message sent: ${info.response}`);
     });
-
-    // res.send(`body: ${JSON.stringify(req.body)}`)
 }
