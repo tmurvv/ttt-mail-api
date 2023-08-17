@@ -7,7 +7,7 @@ This is a mail server which is meant to service all take2tech.ca clients.
 ss
 ## to deploy production
 - git push all changes
-- ssh tmurv@66.85.30.155 -p 222
+- ssh ####@##.##.##.### -p 222
 - cd ..
 - cd ..
 - cd apps/ttt/mail.take2tech.ca
