@@ -32,18 +32,19 @@ module.exports.sendMail = (req, res) => {
 
     transporter.use('compile', hbs(emailTemplateOptions))
 
-    const mailOptions = {
-        from: '"Tech" <tech@take2tech.ca>', // sender address
-        to: 'tech@take2tech.ca', // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
-        subject: 'Contact Message Received',
-        template: 'email', // the name of the template file i.e email.handlebars
-        context: {
-            name: req.body?.name,
-            email: req.body?.email,
-            message: req.body?.message,
-            tttClient: "take2tech.ca"
-        }
-    };
+    // working configuration
+    // const mailOptions = {
+    //     from: '"Tech" <tech@take2tech.ca>', // sender address
+    //     to: 'tech@take2tech.ca', // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
+    //     subject: 'Contact Message Received',
+    //     template: 'email', // the name of the template file i.e email.handlebars
+    //     context: {
+    //         name: req.body?.name,
+    //         email: req.body?.email,
+    //         message: req.body?.message,
+    //         tttClient: "take2tech.ca"
+    //     }
+    // };
 
     transporter.sendMail(client_config[client], function (error, info) {
         if (error) {
@@ -51,8 +52,8 @@ module.exports.sendMail = (req, res) => {
             return res.send(`ERROR: ${error.message}`);
         }
 
-        console.log(`Message sent: ${info?.response}`);
-        res.send(`Message sent: ${info?.response}`);
+        console.log(`Message sent: ${info && info.response}`);
+        res.send(`Message sent: ${info && info.response}`);
     });
 }
 

@@ -5,9 +5,9 @@ module.exports.client_config = () => ({
     subject: "Contact Message Received",
     template: "email", // the name of the template file i.e email.handlebars
     context: {
-      name: req.body?.name,
-      email: req.body?.email,
-      message: req.body?.message,
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message,
       tttClient: "take2tech.ca",
     },
   },
@@ -19,9 +19,9 @@ module.exports.client_config = () => ({
     subject: "J. Dolan Stories Contact Message Received",
     template: "email", // the name of the template file i.e email.handlebars
     context: {
-      name: req.body?.name,
-      email: req.body?.email,
-      message: req.body?.message,
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message,
       tttClient: "take2tech.ca",
     },
   },
