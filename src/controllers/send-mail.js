@@ -4,7 +4,7 @@ module.exports.sendMail = (req, res) => {
     const hbs = require('nodemailer-express-handlebars');
     const nodemailer = require('nodemailer');
     const path = require('path');
-    const client = req.params?.client;
+    const client = req.params?req.params.client:undefined;
 
     if (!client || !client_config[client]) {
         return res.status(404).send("Client not found.");
@@ -56,4 +56,3 @@ module.exports.sendMail = (req, res) => {
         res.send(`Message sent: ${info && info.response}`);
     });
 }
-
