@@ -11,6 +11,8 @@ ss
 - cd ..
 - cd ..
 - cd apps/ttt/mail.take2tech.ca
-- git reset --hard
-- git pull
+- sudo git reset --hard
+- sudo git pull
 - check that .env port is 4000
+- sudo system ctl restart nginx
+ 

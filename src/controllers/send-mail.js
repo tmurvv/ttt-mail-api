@@ -1,11 +1,15 @@
+const {client_config} = require("./client_config")
+
 module.exports.sendMail = (req, res) => {
-    const hbs = require('nodemailer-express-handlebars')
-    const nodemailer = require('nodemailer')
-    const path = require('path')
+    const hbs = require('nodemailer-express-handlebars');
+    const nodemailer = require('nodemailer');
+    const path = require('path');
+    const client = req.params?.client;
 
-    console.log('req', req.body);
+    if (!client || !client_config[client]) {
+        return res.status(404).send("Client not found.");
+    }
 
-    // initialize nodemailer
     const transporter = nodemailer.createTransport(
         {
             host: process.env.MAIL_SERVER,
@@ -18,7 +22,6 @@ module.exports.sendMail = (req, res) => {
         }
     );
 
-    // point to the template folder
     const emailTemplateOptions = {
         viewEngine: {
             partialsDir: path.resolve('./views/'),
@@ -27,7 +30,6 @@ module.exports.sendMail = (req, res) => {
         viewPath: path.resolve('./views/'),
     };
 
-    // use a template file with nodemailer
     transporter.use('compile', hbs(emailTemplateOptions))
 
     const mailOptions = {
@@ -43,14 +45,14 @@ module.exports.sendMail = (req, res) => {
         }
     };
 
-    // trigger the sending of the E-mail
-    transporter.sendMail(mailOptions, function (error, info) {
-        console.log('imin')
+    transporter.sendMail(client_config[client], function (error, info) {
         if (error) {
             console.log(error.message);
-            res.send(`ERROR: ${error.message}`);
+            return res.send(`ERROR: ${error.message}`);
         }
-        console.log(`Message sent: ${info.response}`);
-        res.send(`Message sent: ${info.response}`);
+
+        console.log(`Message sent: ${info?.response}`);
+        res.send(`Message sent: ${info?.response}`);
     });
 }
+
