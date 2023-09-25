@@ -10,7 +10,7 @@ module.exports.sendMail = (req, res) => {
         return res.status(400).send("Client parameter not found in url.");
     }
 
-    const clientConfig = getClientConfig(req.body)
+    const clientConfig = getClientConfig(client, req.body);
 
     if (!clientConfig[client]) {
         return res.status(400).send("Client not found.");
@@ -38,7 +38,7 @@ module.exports.sendMail = (req, res) => {
 
     transporter.use('compile', hbs(emailTemplateOptions))
 
-    transporter.sendMail(clientConfig, function (error, info) {
+    transporter.sendMail(clientConfig[client], function (error, info) {
         if (error) {
             console.log(error.message);
             return res.send(`ERROR: ${error.message}`);
