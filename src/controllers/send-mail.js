@@ -1,19 +1,11 @@
-const {getClientConfig} = require("./get-client-config")
+const {getEmail} = require("./get-email")
 
 module.exports.sendMail = (req, res) => {
-    const hbs = require('nodemailer-express-handlebars');
     const nodemailer = require('nodemailer');
-    const path = require('path');
     const {client} = req.query;
 
     if (!client) {
         return res.status(400).send("Client parameter not found in url.");
-    }
-
-    const clientConfig = getClientConfig(client, req.body);
-
-    if (!clientConfig[client]) {
-        return res.status(400).send("Client not found.");
     }
 
     const transporter = nodemailer.createTransport(
@@ -28,17 +20,18 @@ module.exports.sendMail = (req, res) => {
         }
     );
 
-    const emailTemplateOptions = {
-        viewEngine: {
-            partialsDir: path.resolve('./views/'),
-            defaultLayout: false,
-        },
-        viewPath: path.resolve('./views/'),
-    };
+    const options = {
+        customer: req.body,
+        client
+    }
 
-    transporter.use('compile', hbs(emailTemplateOptions))
+    const email = getEmail(options);
 
-    transporter.sendMail(clientConfig[client], function (error, info) {
+    if (!email) {
+        return res.status(400).send("Client not found.")
+    }
+
+    transporter.sendMail(email, function (error, info) {
         if (error) {
             console.log(error.message);
             return res.send(`ERROR: ${error.message}`);
