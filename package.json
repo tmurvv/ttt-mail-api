@@ -2,7 +2,6 @@
   "name": "tttmailapi",
   "version": "0.1.0",
   "description": "take2tech.ca Mail API",
-  "main": "src/server.js",
   "scripts": {
     "test": "jest"
   },
@@ -21,8 +20,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "nodemailer": "^6.9.4",
-    "nodemailer-express-handlebars": "^6.1.0",
+    "nodemailer": "^6.9.4"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.1"
   }
 }
