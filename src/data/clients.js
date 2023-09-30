@@ -6,7 +6,7 @@ module.exports = {
     },
     jdolanstories: {
         name: "Ron",
-        email: "tmurv@shaw.ca", // TODO replace with Ron email
+        email: "lmurv@hotmail.com",
         business: "J. Dolan Stories"
     },
 }
