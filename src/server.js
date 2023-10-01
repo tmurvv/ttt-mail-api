@@ -6,7 +6,7 @@ require('dotenv').config();
 const {sendMail} = require("./controllers/send-mail");
 
 const app = express()
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
 
 app.post('/send-mail', sendMail);
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
 })

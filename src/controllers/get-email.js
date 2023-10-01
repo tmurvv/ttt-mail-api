@@ -24,6 +24,7 @@ module.exports.getEmail = (options) => {
                 <p>We have received a message on your contact page. Here are the details: </p>
                 <p>Contact Name: ${options.customer.name}</p>
                 <p>Contact Email: ${options.customer.email}</p>
+                <p>Contact Phone: ${options.customer.phone}</p>
                 <p>Contact Message: ${options.customer.message}</p>
             </body>
             </html>

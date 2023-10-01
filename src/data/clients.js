@@ -9,4 +9,10 @@ module.exports = {
         email: "lmurv@hotmail.com",
         business: "J. Dolan Stories"
     },
+    albertaharpist: {
+        name: "Tiffany",
+        // email: "info@albertaharpist.com",
+        email: "tmurv@shaw.ca", // for testing
+        business: "albertaharpist.com"
+    }
 }
