@@ -11,8 +11,7 @@ module.exports = {
     },
     albertaharpist: {
         name: "Tiffany",
-        // email: "info@albertaharpist.com",
-        email: "tmurv@shaw.ca", // for testing
+        email: "hansen.tiff@gmail.com",
         business: "albertaharpist.com"
     }
 }
