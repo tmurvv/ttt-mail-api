@@ -1,4 +1,9 @@
 module.exports = {
+    tmurv: {
+        name: "tmurv",
+        email: "tmurv@shaw.ca",
+        business: "for testing purposes"
+    },
     take2tech: {
         name: "take2tech",
         email: "tech@take2tech.ca",

@@ -1,6 +1,7 @@
 const clients = require("../data/clients");
 
 module.exports.getEmail = (options) => {
+    // not yet implemented
   const {client} = options;
 
   if (!clients[client]) {
