@@ -1,16 +1,9 @@
-const clients = require("../data/clients");
-
 module.exports.getEmail = (options) => {
-    // not yet implemented
-  const {client} = options;
-
-  if (!clients[client]) {
-      return;
-  }
+  const {fullClient} = options;
 
   return ({
       from: `TECH <tech@take2tech.ca>`,
-      to: clients[client].email, // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
+      to: fullClient.email, // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
       subject: "Contact Message Received",
       html: `
             <!DOCTYPE html>
@@ -21,7 +14,7 @@ module.exports.getEmail = (options) => {
                 <title>Notice of message from contact page</title>
             </head>
             <body>
-                <h2>Hello ${clients[client].name}! </h2>
+                <h2>Hello ${fullClient.name}! </h2>
                 <p>We have received a message on your contact page. Here are the details: </p>
                 <p>Contact Name: ${options.customer.name}</p>
                 <p>Contact Email: ${options.customer.email}</p>

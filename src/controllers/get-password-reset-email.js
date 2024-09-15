@@ -1,7 +1,7 @@
 module.exports.getPasswordResetEmail = (options) => {
-  const { client, from, url, useremail } = options;
+  const { fullClient, from, url, useremail } = options;
 
-  if (!from || !url || !useremail || !client) {
+  if (!from || !url || !useremail || !fullClient) {
     return "Error Sending email. Not enough information.";
   }
 
@@ -16,7 +16,7 @@ module.exports.getPasswordResetEmail = (options) => {
     html: `<html lang="en">
                         <body style="color:#083a08; font-family: Lato, Arial, Helvetica, sans-serif;
                                                     line-height:1.8em;">
-                            <h2>Message from ${client.business}</h2>
+                            <h2>Message from ${fullClient.business}</h2>
                             <p>Dear ${useremail},<br><br>Please click on the link below to
                                 reset your password.</p>
                             <p style="text-decoration: underline; font-size: 24px;"><a style="color:#4054b2;font-weight: 600;" href=${resetUrl}> Reset Password</a></p>

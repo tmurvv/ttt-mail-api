@@ -1,15 +1,9 @@
-const clients = require("../data/clients");
-
 module.exports.getTestEmail = (options) => {
-    const {client} = options;
-
-    if (!clients[client]) {
-        return;
-    }
+    const {fullClient} = options;
 
     return ({
         from: `<tech@take2tech.ca>`,
-        to: clients[client].email, // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
+        to: fullClient.email, // can be list 'tmurv@fdjfl.com temsk@fjdks.com'
         subject: "Testing Email Received",
         html: `
             <!DOCTYPE html>
@@ -20,7 +14,7 @@ module.exports.getTestEmail = (options) => {
                 <title>Notice of test-email</title>
             </head>
             <body>
-                <h2>Hello ${clients[client].business}! </h2>
+                <h2>Hello ${fullClient.business}! </h2>
                 <p>This is a test.</p>
             </body>
             </html>

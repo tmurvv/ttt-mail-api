@@ -10,11 +10,6 @@ module.exports = {
         email: "tech@take2tech.ca",
         business: "Ultimate Renovations Timesheets"
     },
-    take2tech: {
-        name: "take2tech",
-        email: "tech@take2tech.ca",
-        business: "take2tech"
-    },
     jdolanstories: {
         name: "Ron",
         email: "lmurv@hotmail.com",
