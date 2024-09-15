@@ -2,7 +2,12 @@ module.exports = {
     tmurv: {
         name: "tmurv",
         email: "tmurv@shaw.ca",
-        business: "for testing purposes"
+        business: "QA Expert",
+    },
+    ultrenosTimesheets: {
+        name: "ultrenos",
+        email: "tech@take2tech.ca",
+        business: "Ultimate Renovations Timesheets"
     },
     take2tech: {
         name: "take2tech",
