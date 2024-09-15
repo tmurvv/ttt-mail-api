@@ -1,10 +1,11 @@
+// key are passed through URL so must be all lowercase
 module.exports = {
     tmurv: {
         name: "tmurv",
         email: "tmurv@shaw.ca",
         business: "QA Expert",
     },
-    ultrenosTimesheets: {
+    ultrenostimesheets: {
         name: "ultrenos",
         email: "tech@take2tech.ca",
         business: "Ultimate Renovations Timesheets"
