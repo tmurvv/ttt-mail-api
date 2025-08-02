@@ -7,4 +7,8 @@
 - `sudo git reset --hard`
 - `sudo git pull`
 - check that .env port is 4000
-- `sudo systemctl restart nginx` (should this be restart pm2 instance?)
+- `cd src`
+- `pm2 status`
+- get id of mail server instance
+- `pm2 stop [mail-server-instance-id]`
+- `pm2 start server.js --name mail-server-4000`
